@@ -1,0 +1,151 @@
+{
+  "college": "ABC College of Engineering",
+  "updated": "2026-11-18",
+  "currency": "LPA",
+  "drives": [
+    {
+      "id": 1,
+      "company": "TechNova Solutions",
+      "role": "Software Developer",
+      "location": "Coimbatore",
+      "package": 4.5,
+      "openings": 40,
+      "date": "2026-11-25",
+      "min_cgpa": 6.5,
+      "status": "Upcoming",
+      "mode": "On-campus"
+    },
+    {
+      "id": 2,
+      "company": "DataSphere Analytics",
+      "role": "Data Analyst",
+      "location": "Chennai",
+      "package": 6.0,
+      "openings": 25,
+      "date": "2026-11-28",
+      "min_cgpa": 7.0,
+      "status": "Open",
+      "mode": "Online"
+    },
+    {
+      "id": 3,
+      "company": "BuildWell Engineering",
+      "role": "Graduate Engineer Trainee",
+      "location": "Hosur",
+      "package": 3.8,
+      "openings": 60,
+      "date": "2026-12-02",
+      "min_cgpa": 6.0,
+      "status": "Open",
+      "mode": "On-campus"
+    },
+    {
+      "id": 4,
+      "company": "CloudNest Technologies",
+      "role": "Cloud Support Engineer",
+      "location": "Bengaluru",
+      "package": 7.2,
+      "openings": 15,
+      "date": "2026-12-05",
+      "min_cgpa": 7.5,
+      "status": "Upcoming",
+      "mode": "Online"
+    },
+    {
+      "id": 5,
+      "company": "FinEdge Systems",
+      "role": "Web Developer",
+      "location": "Chennai",
+      "package": 5.0,
+      "openings": 30,
+      "date": "2026-12-08",
+      "min_cgpa": 6.5,
+      "status": "Upcoming",
+      "mode": "On-campus"
+    },
+    {
+      "id": 6,
+      "company": "GreenVolt Energy",
+      "role": "Electrical Engineer",
+      "location": "Coimbatore",
+      "package": 4.2,
+      "openings": 20,
+      "date": "2026-11-20",
+      "min_cgpa": 6.0,
+      "status": "Open",
+      "mode": "On-campus"
+    },
+    {
+      "id": 7,
+      "company": "MediSoft Health",
+      "role": "QA Engineer",
+      "location": "Hyderabad",
+      "package": 4.8,
+      "openings": 18,
+      "date": "2026-11-12",
+      "min_cgpa": 6.5,
+      "status": "Closed",
+      "mode": "Online"
+    },
+    {
+      "id": 8,
+      "company": "AutoDrive Motors",
+      "role": "Design Engineer",
+      "location": "Pune",
+      "package": 5.5,
+      "openings": 12,
+      "date": "2026-11-05",
+      "min_cgpa": 6.5,
+      "status": "Closed",
+      "mode": "On-campus"
+    },
+    {
+      "id": 9,
+      "company": "InfraCore Networks",
+      "role": "Network Engineer",
+      "location": "Chennai",
+      "package": 4.0,
+      "openings": 22,
+      "date": "2026-12-10",
+      "min_cgpa": 6.0,
+      "status": "Upcoming",
+      "mode": "On-campus"
+    },
+    {
+      "id": 10,
+      "company": "PixelWorks Studio",
+      "role": "UI Developer",
+      "location": "Kochi",
+      "package": 4.6,
+      "openings": 10,
+      "date": "2026-11-22",
+      "min_cgpa": 6.5,
+      "status": "Open",
+      "mode": "Online"
+    },
+    {
+      "id": 11,
+      "company": "LogiTrack Pvt Ltd",
+      "role": "Systems Analyst",
+      "location": "Coimbatore",
+      "package": 3.6,
+      "openings": 35,
+      "date": "2026-12-14",
+      "min_cgpa": 6.0,
+      "status": "Upcoming",
+      "mode": "On-campus"
+    },
+    {
+      "id": 12,
+      "company": "EduSpark Learning",
+      "role": "Technical Trainer",
+      "location": "Madurai",
+      "package": 3.4,
+      "openings": 16,
+      "date": "2026-11-09",
+      "min_cgpa": 6.0,
+      "status": "Closed",
+      "mode": "Online"
+    }
+  ]
+}

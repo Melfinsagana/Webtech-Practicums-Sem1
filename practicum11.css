@@ -1,0 +1,2013 @@
+/* ==========================================================
+   College Placement Portal - Professional Stylesheet
+   ========================================================== */
+
+/* ---------- 1. Colors and fonts (CSS variables) ---------- */
+:root {
+  --primary: #1e3a8a;
+  --primary-dark: #172554;
+  --accent: #6d28d9;
+  --gold: #fbbf24;
+  --bg: #f1f5f9;
+  --card: #ffffff;
+  --text: #1e293b;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --radius: 14px;
+  --shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+  --shadow-hover: 0 14px 28px rgba(30, 58, 138, 0.18);
+}
+
+/* ---------- 2. Box model reset ---------- */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+}
+
+/* ---------- 3. Base page and font styling ---------- */
+body {
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+}
+
+h1, h2, h3 {
+  font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+  line-height: 1.25;
+}
+
+h3 {
+  color: var(--primary);
+  margin: 0 0 8px;
+}
+
+a {
+  color: var(--accent);
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--primary);
+}
+
+/* ---------- 4. Header (hero) ---------- */
+header {
+  padding: 56px 20px 64px;
+  text-align: center;
+  color: #fff;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(251, 191, 36, 0.25), transparent 40%),
+    linear-gradient(135deg, var(--primary-dark), var(--primary) 50%, var(--accent));
+}
+
+header h1 {
+  margin: 0 0 10px;
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+header p {
+  margin: 0 0 24px;
+  font-size: 1.15rem;
+  opacity: 0.92;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 50px;
+  background: var(--gold);
+  color: var(--primary-dark);
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.btn:hover {
+  color: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.3);
+}
+
+/* ---------- 5. Responsive navigation (CSS Flexbox) ---------- */
+nav {
+  position: sticky;          /* stays at the top while scrolling */
+  top: 0;
+  z-index: 100;
+  background: var(--primary-dark);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Main navbar row: logo on the left, links on the right */
+.navbar {
+  display: flex;                    /* display: flex */
+  flex-direction: row;              /* items in one row */
+  justify-content: space-between;   /* logo left, links right */
+  align-items: center;              /* vertically centered */
+  flex-wrap: wrap;                  /* allows menu to drop to next line */
+  gap: 8px 16px;                    /* row gap and column gap */
+  padding: 8px max(16px, calc((100% - 1200px) / 2));
+}
+
+/* Brand / logo */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  color: var(--primary-dark);
+  background: var(--gold);
+}
+
+/* Navigation links container */
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-links li {
+  margin: 0;
+}
+
+.nav-links a {
+  display: block;
+  padding: 8px 6px;
+  color: #e2e8f0;
+  font-size: 0.85rem;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.25s, color 0.25s;
+}
+
+.nav-links a:hover {
+  background: rgba(251, 191, 36, 0.2);
+  color: var(--gold);
+}
+
+/* Register button inside the menu */
+.nav-links a.nav-cta {
+  margin-left: 6px;
+  padding: 8px 14px;
+  font-weight: 600;
+  color: var(--primary-dark);
+  background: var(--gold);
+  border-radius: 50px;
+}
+
+.nav-links a.nav-cta:hover {
+  color: #fff;
+  background: var(--accent);
+}
+
+/* Hamburger button: hidden on desktop */
+.menu-toggle {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 42px;
+  height: 42px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.hamburger:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  border-radius: 3px;
+  background: #fff;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* ---------- 6. Page layout ---------- */
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 32px 16px 20px;
+}
+
+section {
+  margin-bottom: 32px;
+  padding: 28px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+section h2 {
+  position: relative;
+  margin: 0 0 20px;
+  padding-bottom: 12px;
+  font-size: 1.7rem;
+  color: var(--primary);
+}
+
+/* short gold underline under every section heading (absolute positioning) */
+section h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 70px;
+  height: 4px;
+  border-radius: 4px;
+  background: var(--gold);
+}
+
+p {
+  margin: 0 0 14px;
+}
+
+ul, ol {
+  padding-left: 22px;
+}
+
+li {
+  margin-bottom: 4px;
+}
+
+/* ---------- 7. Cards (grid layout and hover effects) ---------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+article {
+  padding: 20px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--accent);
+  border-radius: 12px;
+  transition: transform 0.3s, box-shadow 0.3s, border-top-color 0.3s;
+}
+
+article:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-top-color: var(--gold);
+}
+
+article ul {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ---------- 8. Images, video, audio, map ---------- */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+article img {
+  display: block;
+  margin-bottom: 12px;
+  transition: transform 0.3s;
+}
+
+article:hover img {
+  transform: scale(1.05);
+}
+
+figure {
+  margin: 0 0 24px;
+}
+
+figure img,
+figure video {
+  display: block;
+  box-shadow: var(--shadow);
+}
+
+figcaption {
+  margin-top: 6px;
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--muted);
+}
+
+iframe {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  height: 320px;
+  border: 3px solid var(--border);
+}
+
+/* ---------- 9. Tables ---------- */
+.table-wrap {
+  overflow-x: auto;
+  margin-top: 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+caption {
+  padding: 12px;
+  font-weight: 600;
+  text-align: left;
+  color: var(--primary);
+}
+
+th {
+  padding: 12px 14px;
+  text-align: left;
+  color: #fff;
+  background: var(--primary);
+}
+
+td {
+  padding: 11px 14px;
+  border-top: 1px solid var(--border);
+}
+
+tbody tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+tbody tr {
+  transition: background 0.2s;
+}
+
+tbody tr:hover {
+  background: #e0e7ff;
+}
+
+/* ---------- 10. Registration form ---------- */
+fieldset {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  column-gap: 24px;
+  margin: 0 0 20px;
+  padding: 18px 22px 8px;
+  border: 1px solid #c7d2fe;
+  border-radius: 12px;
+  background: #fafaff;
+}
+
+legend {
+  padding: 4px 14px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  border-radius: 20px;
+}
+
+label {
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=tel],
+input[type=number],
+input[type=date],
+select,
+textarea {
+  width: 100%;
+  margin-top: 4px;
+  padding: 10px 12px;
+  font: inherit;
+  color: var(--text);
+  background: #fff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+  border-color: var(--accent);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(109, 40, 217, 0.15);
+}
+
+input[type=radio],
+input[type=checkbox] {
+  margin: 0 4px 0 12px;
+  accent-color: var(--accent);
+}
+
+input[type=radio]:first-of-type,
+input[type=checkbox]:first-of-type {
+  margin-left: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  margin-right: 10px;
+  padding: 12px 32px;
+  font: inherit;
+  font-weight: 600;
+  border: 0;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+button[type=submit] {
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+}
+
+button[type=submit]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(109, 40, 217, 0.35);
+}
+
+button[type=reset] {
+  color: var(--text);
+  background: #e2e8f0;
+}
+
+button[type=reset]:hover {
+  background: #cbd5e1;
+}
+
+address {
+  font-style: normal;
+  padding: 16px 20px;
+  background: #f8fafc;
+  border-left: 5px solid var(--gold);
+  border-radius: 8px;
+}
+
+/* ---------- 11. Footer and floating button ---------- */
+footer {
+  padding: 28px 16px;
+  text-align: center;
+  color: #cbd5e1;
+  background: var(--primary-dark);
+}
+
+footer p {
+  margin: 4px 0;
+}
+
+footer a {
+  color: var(--gold);
+}
+
+/* fixed-position back-to-top button */
+.back-top {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 200;
+  width: 46px;
+  height: 46px;
+  line-height: 46px;
+  text-align: center;
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: var(--primary-dark);
+  background: var(--gold);
+  border-radius: 50%;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+  transition: transform 0.25s, background 0.25s;
+}
+
+.back-top:hover {
+  color: #fff;
+  background: var(--accent);
+  transform: translateY(-5px);
+}
+
+/* ---------- 12. Responsive (mobile) ---------- */
+@media (max-width: 640px) {
+  header h1 { font-size: 1.8rem; }
+  section { padding: 18px; }
+}
+
+/* ---------- 13. Navigation: responsive arrangement ---------- */
+/* Tablet: smaller links so everything still fits */
+@media (max-width: 1600px) {
+  .brand { font-size: 1rem; }
+  .nav-links a { padding: 8px 6px; font-size: 0.85rem; }
+  .nav-links a.nav-cta { padding: 8px 14px; }
+}
+
+/* Mobile: hamburger menu, links stacked in a column */
+@media (max-width: 1240px) {
+  .hamburger { display: flex; }
+
+  .nav-links {
+    display: none;                 /* hidden until the hamburger is clicked */
+    flex-direction: column;        /* stack links vertically */
+    flex-basis: 100%;              /* take the full width: wraps below the logo */
+    align-items: stretch;
+    gap: 2px;
+    padding-bottom: 8px;
+  }
+
+  .menu-toggle:checked ~ .nav-links { display: flex; }
+
+  .nav-links a { padding: 12px 14px; font-size: 1rem; }
+  .nav-links a.nav-cta { margin: 6px 0 0; text-align: center; }
+
+  /* hamburger turns into an X when open */
+  .menu-toggle:checked + .hamburger span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .menu-toggle:checked + .hamburger span:nth-child(2) { opacity: 0; }
+  .menu-toggle:checked + .hamburger span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+}
+
+/* ==========================================================
+   14. CSS POSITIONING USED IN THE WEBSITE
+   static   : the normal position of all page content (default)
+   relative : .job-card and article boxes are the parent of absolute items
+   absolute : .badge on the company cards, the gold line under every
+              heading (h2::after), ribbon and heart on job cards
+   fixed    : "Apply Now" tab, "Next Drive" alert, back-to-top button
+   sticky   : the navigation bar stays at the top while scrolling
+   ========================================================== */
+
+/* ---- relative: parent for absolutely positioned badges ---- */
+article {
+  position: relative;
+}
+
+/* ---- absolute: badge placed in the corner of its parent card ---- */
+.badge {
+  position: absolute;
+  top: -13px;      /* sits on the top edge of the card */
+  right: 16px;
+  padding: 3px 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+  background: var(--gold);
+  border-radius: 20px;
+}
+
+.badge-new {
+  color: #fff;
+  background: #16a34a;
+}
+
+/* ---- fixed: elements that stay on screen while scrolling ---- */
+.apply-fixed {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  z-index: 150;
+  padding: 16px 10px;
+  writing-mode: vertical-rl;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: #fff;
+  background: var(--accent);
+  border-radius: 12px 0 0 12px;
+  box-shadow: -3px 3px 12px rgba(0, 0, 0, 0.25);
+  transition: padding 0.25s, background 0.25s;
+}
+
+.apply-fixed:hover {
+  padding-right: 18px;
+  color: var(--primary-dark);
+  background: var(--gold);
+}
+
+.drive-alert {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 150;
+  padding: 10px 16px;
+  font-size: 0.88rem;
+  color: #fff;
+  background: var(--primary-dark);
+  border-left: 5px solid var(--gold);
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 640px) {
+  .drive-alert { right: 80px; font-size: 0.78rem; }
+}
+
+/* ==========================================================
+   15. IMAGE GALLERY (CSS Grid)
+   ========================================================== */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);   /* 4 equal columns on desktop */
+  gap: 16px;
+}
+
+.gallery-item {
+  position: relative;
+  margin: 0;
+  overflow: hidden;                         /* hides the zoomed part of the image */
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* every image has exactly the same size */
+.gallery-item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 0;
+  transition: transform 0.5s;
+}
+
+/* caption sits below the image on a clean white panel */
+.gallery-item figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+  padding: 12px 14px 14px;
+  font-style: normal;
+  background: #fff;
+}
+
+.gallery-item figcaption strong {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  color: var(--primary);
+}
+
+.gallery-item figcaption span {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+/* responsive columns */
+@media (max-width: 1000px) {
+  .gallery { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 760px) {
+  .gallery { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+}
+
+@media (max-width: 480px) {
+  .gallery { grid-template-columns: 1fr; }
+}
+
+/* ==========================================================
+   16. RESPONSIVE DESIGN (CSS media queries)
+   Breakpoints used in this project
+     Desktop : 1025px and above
+     Tablet  : 601px to 1024px
+     Mobile  : 600px and below
+   ========================================================== */
+
+/* ---- Hero statistics strip (base = desktop: 4 columns) ---- */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  max-width: 860px;
+  margin: 36px auto 0;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 16px 10px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 14px;
+}
+
+.stat strong {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.7rem;
+  color: var(--gold);
+}
+
+.stat span {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Fluid heading size: grows and shrinks with the screen width */
+header h1 {
+  font-size: clamp(1.7rem, 4.5vw + 0.5rem, 2.8rem);
+}
+
+/* Shows which layout is active (useful while testing) */
+.layout-indicator::after {
+  content: 'Current layout: Desktop (1025px and above)';
+  display: inline-block;
+  padding: 4px 14px;
+  font-size: 0.8rem;
+  color: var(--primary-dark);
+  background: var(--gold);
+  border-radius: 20px;
+}
+
+/* ---------- DESKTOP: 1025px and above ---------- */
+@media (min-width: 1025px) {
+  .card-grid { grid-template-columns: repeat(3, 1fr); }   /* 3 cards in a row */
+  main { padding-top: 40px; }
+}
+
+/* ---------- TABLET: 601px to 1024px ---------- */
+@media (max-width: 1024px) {
+  body { font-size: 15.5px; }
+  main { padding: 24px 16px 16px; }
+  section { padding: 22px; }
+  header { padding: 44px 20px 48px; }
+
+  .stats { grid-template-columns: repeat(2, 1fr); max-width: 520px; }
+
+  .card-grid { grid-template-columns: repeat(2, 1fr); }  /* 2 cards in a row */
+  /* a lonely last card uses the full width */
+  .card-grid article:last-child:nth-child(odd) { grid-column: 1 / -1; }
+
+  iframe { height: 280px; }
+
+  .layout-indicator::after { content: 'Current layout: Tablet (601px to 1024px)'; }
+}
+
+/* ---------- MOBILE: 600px and below ---------- */
+@media (max-width: 600px) {
+  body { font-size: 15px; }
+  main { padding: 16px 10px 10px; }
+  section { padding: 16px; margin-bottom: 18px; border-radius: 12px; }
+  section h2 { font-size: 1.35rem; }
+  header { padding: 32px 14px 36px; }
+  header p { font-size: 1rem; }
+
+  .stats { gap: 10px; margin-top: 26px; }
+  .stat { padding: 12px 6px; }
+  .stat strong { font-size: 1.25rem; }
+  .stat span { font-size: 0.8rem; }
+
+  .card-grid { grid-template-columns: 1fr; }             /* 1 card per row */
+
+  iframe { height: 220px; }
+
+  /* Form: single column, bigger touch targets */
+  fieldset { grid-template-columns: 1fr; padding: 16px 14px 6px; }
+  input[type=text], input[type=email], input[type=password], input[type=tel],
+  input[type=number], input[type=date], select, textarea { max-width: 100%; padding: 12px; }
+  button { width: 100%; margin: 0 0 10px; }
+
+  /* Tables become stacked cards: every cell shows its column name */
+  .table-wrap { border: 0; overflow: visible; }
+  table, tbody, tr, td { display: block; width: 100%; }
+  table { border: 0; }
+  thead { position: absolute; left: -9999px; }            /* hide header row visually */
+  caption { display: block; padding: 0 0 8px; }
+  tbody tr {
+    margin-bottom: 12px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  td {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 9px 12px;
+    text-align: right;
+  }
+  td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    text-align: left;
+    color: var(--primary);
+  }
+
+  /* Fixed elements: move so they never cover the content */
+  .drive-alert { display: none; }
+  .apply-fixed {
+    top: auto;
+    right: auto;
+    bottom: 18px;
+    left: 14px;
+    writing-mode: horizontal-tb;
+    padding: 12px 22px;
+    border-radius: 50px;
+  }
+
+  .layout-indicator::after { content: 'Current layout: Mobile (600px and below)'; }
+}
+
+/* ---------- Very small phones ---------- */
+@media (max-width: 380px) {
+  audio { width: 100%; }
+  .stats { grid-template-columns: 1fr; }
+  .brand { font-size: 0.95rem; }
+}
+
+/* ---------- Phone held sideways (landscape) ---------- */
+@media (orientation: landscape) and (max-height: 500px) {
+  header { padding: 20px 14px; }
+  .stats { display: none; }
+}
+
+/* ---------- Accessibility and print ---------- */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}
+
+@media print {
+  nav, .apply-fixed, .drive-alert, .back-top, .stats { display: none; }
+  section { box-shadow: none; break-inside: avoid; }
+}
+
+/* ==========================================================
+   17. ANIMATIONS AND INTERACTIONS
+   Used together with practicum9.js
+   ========================================================== */
+
+/* ---------- 17.1 @keyframes (the animation recipes) ---------- */
+
+/* element fades in while moving up */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* soft glowing ring that repeats (used for the Register button and bell badge) */
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.7); }
+  70%  { box-shadow: 0 0 0 14px rgba(251, 191, 36, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0); }
+}
+
+/* bell swings left and right */
+@keyframes bellRing {
+  0%, 100% { transform: rotate(0); }
+  15% { transform: rotate(16deg); }
+  30% { transform: rotate(-14deg); }
+  45% { transform: rotate(10deg); }
+  60% { transform: rotate(-8deg); }
+  75% { transform: rotate(4deg); }
+}
+
+/* result card pops in */
+@keyframes popIn {
+  0%   { opacity: 0; transform: scale(0.6); }
+  70%  { transform: scale(1.06); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* result card shakes for a "not eligible" message */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-9px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(4px); }
+}
+
+/* button gets pressed */
+@keyframes pressed {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+/* progress bar inside the toast shrinks over 3 seconds */
+@keyframes shrink {
+  from { width: 100%; }
+  to   { width: 0; }
+}
+
+/* loading spinner on the submit button */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---------- 17.2 Page load animation (hero) ---------- */
+header h1,
+header p,
+header .btn,
+.stat {
+  animation: fadeInUp 0.8s ease both;      /* "both" keeps the final state */
+}
+
+header p       { animation-delay: 0.2s; }
+header .btn    { animation-delay: 0.4s; }
+.stat:nth-child(1) { animation-delay: 0.6s; }
+.stat:nth-child(2) { animation-delay: 0.75s; }
+.stat:nth-child(3) { animation-delay: 0.9s; }
+.stat:nth-child(4) { animation-delay: 1.05s; }
+
+.stat {
+  transition: transform 0.3s, background 0.3s;
+}
+
+.stat:hover {
+  transform: translateY(-6px) scale(1.05);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Register Now button keeps glowing until the mouse touches it */
+header .btn {
+  animation: fadeInUp 0.8s 0.4s ease both, pulse 2.4s 1.5s infinite;
+}
+
+header .btn:hover {
+  animation: none;
+}
+
+/* ---------- 17.3 Scroll reveal (JS adds .reveal, then .visible) ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- 17.4 Common button styles and press effect ---------- */
+.btn-primary,
+.toggle-btn {
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: transform 0.25s, box-shadow 0.25s, background 0.25s, color 0.25s;
+}
+
+.btn-primary {
+  padding: 11px 28px;
+  margin: 0;
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  border: 0;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(109, 40, 217, 0.35);
+}
+
+/* JS adds .clicked for a short time after every button click */
+.clicked {
+  animation: pressed 0.35s ease;
+}
+
+/* ---------- 17.5 Company card: View Details (open / close) ---------- */
+.toggle-btn {
+  width: auto;
+  margin: 4px 0 10px;
+  padding: 8px 18px;
+  font-size: 0.9rem;
+  color: var(--accent);
+  background: #fff;
+  border: 2px solid var(--accent);
+}
+
+.toggle-btn:hover,
+.toggle-btn.active {
+  color: #fff;
+  background: var(--accent);
+}
+
+.toggle-btn .arrow {
+  display: inline-block;
+  font-size: 0.7rem;
+  transition: transform 0.4s;
+}
+
+/* arrow flips when the card is open */
+.toggle-btn.active .arrow {
+  transform: rotate(180deg);
+}
+
+/* closed: no height and invisible; open: slides down and fades in */
+.details {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: max-height 0.5s ease, opacity 0.4s ease, transform 0.4s ease;
+}
+
+.details.open {
+  max-height: 260px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.details p {
+  margin: 0 0 8px;
+  padding: 8px 12px;
+  font-size: 0.92rem;
+  background: #f5f3ff;
+  border-left: 4px solid var(--accent);
+  border-radius: 6px;
+}
+
+/* ---------- 17.6 FAQ accordion ---------- */
+.faq-item {
+  margin-bottom: 10px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.faq-item:hover {
+  box-shadow: var(--shadow);
+}
+
+.faq-item.open {
+  border-color: var(--accent);
+}
+
+.faq-q {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin: 0;
+  padding: 14px 18px;
+  font: inherit;
+  font-weight: 600;
+  text-align: left;
+  color: var(--primary);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.faq-icon {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  font-size: 1.3rem;
+  color: #fff;
+  background: var(--accent);
+  border-radius: 50%;
+  transition: transform 0.35s, background 0.35s;
+}
+
+/* "+" turns into "x" when open */
+.faq-item.open .faq-icon {
+  transform: rotate(135deg);
+  background: var(--gold);
+  color: var(--primary-dark);
+}
+
+.faq-a {
+  max-height: 0;
+  padding: 0 18px;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.45s ease, opacity 0.35s ease, padding 0.35s ease;
+}
+
+.faq-item.open .faq-a {
+  max-height: 200px;
+  padding: 0 18px 14px;
+  opacity: 1;
+}
+
+.faq-a p { margin: 0; }
+
+/* ---------- 17.7 Notification bell and panel ---------- */
+.bell-wrap {
+  position: relative;
+}
+
+.bell-btn {
+  position: relative;
+  width: 44px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  font-size: 1.2rem;
+  color: #fff;
+  background: transparent;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.25s;
+}
+
+.bell-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.bell-icon {
+  display: inline-block;
+}
+
+.bell-btn:hover .bell-icon,
+.bell-btn.ring .bell-icon {
+  animation: bellRing 0.8s ease;
+}
+
+/* red counter on the bell; JS adds .hidden after the panel is opened */
+.bell-badge {
+  position: absolute;
+  top: 0;
+  right: 2px;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+  background: #dc2626;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.bell-badge.hidden {
+  transform: scale(0);
+  opacity: 0;
+}
+
+.notify-panel {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  z-index: 250;
+  width: 290px;
+  max-height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-12px) scale(0.96);
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.3);
+  transition: max-height 0.4s ease, opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+.notify-panel.open {
+  max-height: 340px;
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.notify-item {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 16px;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.2s, padding-left 0.2s;
+}
+
+.notify-item:hover {
+  padding-left: 22px;
+  background: #f5f3ff;
+}
+
+.notify-item strong { color: var(--primary); font-size: 0.92rem; }
+.notify-item span   { font-size: 0.82rem; color: var(--muted); }
+
+/* items slide in one after another when the panel opens */
+.notify-panel.open .notify-item {
+  animation: fadeInUp 0.4s ease both;
+}
+
+.notify-panel.open .notify-item:nth-child(2) { animation-delay: 0.1s; }
+.notify-panel.open .notify-item:nth-child(3) { animation-delay: 0.2s; }
+
+/* ---------- 17.8 Eligibility checker ---------- */
+.checker {
+  margin-top: 22px;
+  padding: 18px 20px;
+  background: #f5f3ff;
+  border: 1px dashed var(--accent);
+  border-radius: 12px;
+}
+
+.checker h3 { margin-bottom: 12px; }
+
+.checker-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 14px;
+}
+
+.checker-field {
+  flex: 1 1 160px;
+}
+
+.checker-field input {
+  max-width: 100%;
+}
+
+/* result card: hidden by default, opens with a pop */
+.result-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-height: 0;
+  padding: 0 16px;
+  overflow: hidden;
+  opacity: 0;
+  border-radius: 10px;
+  transition: max-height 0.4s ease, padding 0.4s ease, margin 0.4s ease;
+}
+
+.result-card.show {
+  max-height: 140px;
+  margin-top: 16px;
+  padding: 14px 16px;
+  opacity: 1;
+}
+
+.result-card.success { background: #dcfce7; border-left: 6px solid #16a34a; }
+.result-card.fail    { background: #fee2e2; border-left: 6px solid #dc2626; }
+
+.result-card.success.pop { animation: popIn 0.5s ease; }
+.result-card.fail.pop    { animation: shake 0.5s ease; }
+
+.result-icon { font-size: 1.6rem; }
+.result-text { font-weight: 500; }
+
+/* ---------- 17.9 Toast notification ---------- */
+.toast {
+  position: fixed;
+  top: 76px;
+  right: 20px;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 340px;
+  padding: 14px 18px;
+  overflow: hidden;
+  color: #fff;
+  background: var(--primary-dark);
+  border-left: 6px solid #16a34a;
+  border-radius: 10px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(120%);
+  transition: transform 0.45s ease, opacity 0.45s ease, visibility 0.45s;
+}
+
+.toast.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.toast.error { border-left-color: #dc2626; }
+.toast.info  { border-left-color: var(--gold); }
+
+.toast-icon { font-size: 1.3rem; }
+
+/* thin timer bar at the bottom of the toast */
+.toast::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  width: 0;
+  background: var(--gold);
+}
+
+.toast.show::after {
+  animation: shrink 3s linear forwards;
+}
+
+/* ---------- 17.10 Gallery lightbox (open / close) ---------- */
+.gallery-item {
+  cursor: pointer;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: rgba(15, 23, 42, 0.92);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s, visibility 0.35s;
+}
+
+.lightbox.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox img {
+  max-width: 88%;
+  max-height: 70vh;
+  border-radius: 14px;
+  transform: scale(0.6) rotate(-4deg);
+  transition: transform 0.45s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+}
+
+.lightbox.open img {
+  transform: scale(1) rotate(0);
+}
+
+.lb-caption {
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+}
+
+.lb-close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  font-size: 2rem;
+  line-height: 1;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.lb-close:hover {
+  background: #dc2626;
+  transform: rotate(90deg);
+}
+
+/* stops the page from scrolling behind the lightbox */
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* ---------- 17.11 Drive alert, back-to-top, submit button ---------- */
+.drive-alert {
+  opacity: 0;
+  transform: translateX(-130%);
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.drive-alert.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.alert-close {
+  width: 24px;
+  height: 24px;
+  margin: 0 0 0 8px;
+  padding: 0;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.25s;
+}
+
+.alert-close:hover {
+  background: #dc2626;
+  transform: rotate(90deg);
+}
+
+/* back-to-top button appears only after scrolling down */
+.back-top {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(24px);
+}
+
+.back-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-top.show:hover {
+  transform: translateY(-5px);
+}
+
+/* spinner shown on the Register button while "submitting" */
+button.loading {
+  position: relative;
+  color: transparent;
+  pointer-events: none;
+}
+
+button.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+/* ---------- 17.12 Small screens ---------- */
+@media (max-width: 1240px) {
+  .bell-wrap { width: 100%; }
+  .bell-btn { width: 100%; text-align: left; padding: 0 14px; }
+  .notify-panel { position: static; width: 100%; }
+  .notify-panel.open { margin-top: 6px; }
+}
+
+@media (max-width: 600px) {
+  .toast { top: 70px; right: 10px; left: 10px; max-width: none; }
+  .checker-row .btn-primary { width: 100%; }
+}
+
+/* ==========================================================
+   18. FORM VALIDATION STYLES
+   Used together with practicum10.js
+   ========================================================== */
+
+/* ---------- 18.1 Field layout ---------- */
+.field {
+  margin-bottom: 14px;
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+.field label {
+  display: block;                  /* label sits above the input */
+}
+
+.req {
+  color: #dc2626;
+}
+
+.hint {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+input[type=url],
+input[type=file] {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 4px;
+  padding: 10px 12px;
+  font: inherit;
+  background: #fff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+}
+
+.field input[type=text],
+.field input[type=email],
+.field input[type=password],
+.field input[type=tel],
+.field input[type=number],
+.field input[type=date],
+.field input[type=url],
+.field select,
+.field textarea {
+  max-width: 100%;
+}
+
+/* ---------- 18.2 Focus, valid and invalid states ---------- */
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border: 2px solid var(--accent);                 /* thicker purple border */
+  background: #faf5ff;
+  box-shadow: 0 0 0 4px rgba(109, 40, 217, 0.15);
+}
+
+/* the red / green colours show only after the student has touched the field */
+.field.touched input:invalid,
+.field.touched select:invalid,
+.field.touched textarea:invalid {
+  border: 2px solid #dc2626;
+  background: #fef2f2;
+}
+
+.field.touched input:valid,
+.field.touched select:valid,
+.field.touched textarea:valid {
+  border: 2px solid #16a34a;
+  background: #f0fdf4;
+}
+
+/* optional fields that are empty stay neutral */
+.field.touched input:valid:placeholder-shown,
+.field.touched textarea:valid:placeholder-shown {
+  border: 1.5px solid #cbd5e1;
+  background: #fff;
+}
+
+/* ---------- 18.3 Radio and checkbox groups ---------- */
+.group-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  padding: 10px 14px;
+  background: #fff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.options label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.options input {
+  margin: 0;
+}
+
+.field.invalid .options {
+  border: 2px solid #dc2626;
+  background: #fef2f2;
+}
+
+.field.valid .options {
+  border: 2px solid #16a34a;
+  background: #f0fdf4;
+}
+
+/* ---------- 18.4 Error message under each field ---------- */
+.error-msg {
+  display: none;                                   /* hidden until JS shows it */
+  align-items: center;
+  gap: 6px;
+  margin-top: 5px;
+  font-size: 0.83rem;
+  font-weight: 500;
+  color: #dc2626;
+}
+
+.error-msg.show {
+  display: flex;
+  animation: fadeInUp 0.3s ease;
+}
+
+.error-msg.show::before {
+  content: '\26A0';
+}
+
+/* ---------- 18.5 Password strength meter ---------- */
+.strength {
+  height: 6px;
+  margin-top: 6px;
+  overflow: hidden;
+  background: #e2e8f0;
+  border-radius: 6px;
+}
+
+.strength span {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.35s, background 0.35s;
+}
+
+.strength span.s1 { width: 25%;  background: #dc2626; }
+.strength span.s2 { width: 50%;  background: #f97316; }
+.strength span.s3 { width: 75%;  background: #eab308; }
+.strength span.s4 { width: 100%; background: #16a34a; }
+
+.counter {
+  text-align: right;
+}
+
+.counter.limit {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+/* ---------- 18.6 Progress bar ---------- */
+.progress-wrap {
+  margin-bottom: 18px;
+}
+
+.progress {
+  height: 10px;
+  overflow: hidden;
+  background: #e2e8f0;
+  border-radius: 10px;
+}
+
+.progress-bar {
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--gold));
+  border-radius: 10px;
+  transition: width 0.4s ease;
+}
+
+/* ---------- 18.7 Error and success messages for the whole form ---------- */
+.form-alert {
+  display: none;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 18px;
+  padding: 14px 18px;
+  border-radius: 12px;
+}
+
+.form-alert.show {
+  display: flex;
+  animation: popIn 0.5s ease;
+}
+
+.form-alert.error {
+  color: #991b1b;
+  background: #fee2e2;
+  border-left: 6px solid #dc2626;
+}
+
+.form-alert.success {
+  color: #14532d;
+  background: #dcfce7;
+  border-left: 6px solid #16a34a;
+}
+
+.form-alert p {
+  margin: 4px 0 12px;
+}
+
+.alert-icon {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #fff;
+  border-radius: 50%;
+}
+
+.form-alert.error .alert-icon   { background: #dc2626; }
+.form-alert.success .alert-icon { background: #16a34a; }
+
+.form-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.form-buttons button {
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .form-buttons button { width: 100%; }
+  .options { flex-direction: column; }
+}
+
+/* ==========================================================
+   19. API DATA SECTION (Live Placement Drives)
+   Used together with practicum11.js
+   ========================================================== */
+
+/* ---------- 19.1 Toolbar (flex) ---------- */
+.api-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.api-toolbar select,
+.api-toolbar input {
+  flex: 1 1 200px;
+  width: auto;
+  max-width: none;
+  margin: 0;
+  padding: 10px 12px;
+  font: inherit;
+  background: #fff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+}
+
+.api-toolbar select:focus,
+.api-toolbar input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(109, 40, 217, 0.15);
+}
+
+.api-toolbar button {
+  flex: 0 0 auto;
+  width: auto;
+  margin: 0;
+}
+
+.btn-outline {
+  padding: 11px 24px;
+  font: inherit;
+  font-weight: 600;
+  color: #dc2626;
+  background: #fff;
+  border: 2px solid #dc2626;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s, transform 0.25s;
+}
+
+.btn-outline:hover {
+  color: #fff;
+  background: #dc2626;
+  transform: translateY(-2px);
+}
+
+/* ---------- 19.2 Loading indicator ---------- */
+.loader {
+  display: none;                          /* JS changes this to flex */
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 36px 16px;
+  margin-bottom: 16px;
+  background: #f5f3ff;
+  border: 1px dashed var(--accent);
+  border-radius: 12px;
+}
+
+.loader.show {
+  display: flex;
+}
+
+.loader p {
+  margin: 0;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.spinner {
+  width: 46px;
+  height: 46px;
+  border: 5px solid #ddd6fe;
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* ---------- 19.3 Error message ---------- */
+.error-box {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  color: #991b1b;
+  background: #fee2e2;
+  border-left: 6px solid #dc2626;
+  border-radius: 10px;
+}
+
+.error-box.show {
+  display: flex;
+  animation: popIn 0.4s ease;
+}
+
+.error-box p {
+  flex: 1 1 260px;
+  margin: 0;
+}
+
+.error-box button {
+  width: auto;
+  margin: 0;
+}
+
+/* ---------- 19.4 Summary cards (grid) ---------- */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.summary-card {
+  padding: 16px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--accent);
+  border-radius: 12px;
+  animation: fadeInUp 0.5s ease both;
+}
+
+.summary-card strong {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.6rem;
+  color: var(--primary);
+}
+
+.summary-card span {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ---------- 19.5 Data table (scrolls inside its own box) ---------- */
+.api-table-wrap {
+  display: none;
+  max-height: 440px;
+  margin: 0;
+  overflow: auto;                         /* scroll bars appear inside the box */
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.api-table-wrap.show {
+  display: block;
+  animation: fadeInUp 0.5s ease;
+}
+
+.api-table-wrap table {
+  min-width: 760px;
+}
+
+.api-table-wrap th {
+  position: sticky;                       /* heading stays visible while scrolling */
+  top: 0;
+  z-index: 2;
+}
+
+.api-table-wrap tbody tr {
+  animation: fadeInUp 0.4s ease both;
+}
+
+.api-table-wrap td .row-btn {
+  width: auto;
+  margin: 0;
+  padding: 5px 16px;
+  font-size: 0.82rem;
+  color: #fff;
+  background: var(--accent);
+  border: 0;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.25s;
+}
+
+.api-table-wrap td .row-btn:hover {
+  background: var(--primary);
+  transform: translateY(-2px);
+}
+
+/* status badges */
+.status-badge {
+  display: inline-block;
+  padding: 3px 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border-radius: 20px;
+}
+
+.status-open     { color: #14532d; background: #dcfce7; }
+.status-upcoming { color: #1e3a8a; background: #dbeafe; }
+.status-closed   { color: #475569; background: #e2e8f0; }
+
+.empty-row td {
+  padding: 28px;
+  text-align: center;
+  color: var(--muted);
+}
+
+.api-meta {
+  margin: 10px 0 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+/* ---------- 19.6 Responsive ---------- */
+@media (max-width: 1024px) {
+  .summary-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .summary-grid { gap: 10px; }
+  .api-toolbar button { flex: 1 1 100%; }
+  .api-table-wrap { max-height: none; border: 0; overflow: visible; }
+  .api-table-wrap table { min-width: 0; }
+  .api-table-wrap td .row-btn { width: auto; }
+}
+
+/* keep dates and packages on one line */
+.api-table-wrap td[data-label="Date"],
+.api-table-wrap td[data-label="Package"] {
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .api-table-wrap td[data-label="Date"],
+  .api-table-wrap td[data-label="Package"] { white-space: normal; }
+}

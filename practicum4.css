@@ -1,0 +1,475 @@
+/* ==========================================================
+   College Placement Portal - Professional Stylesheet
+   ========================================================== */
+
+/* ---------- 1. Colors and fonts (CSS variables) ---------- */
+:root {
+  --primary: #1e3a8a;
+  --primary-dark: #172554;
+  --accent: #6d28d9;
+  --gold: #fbbf24;
+  --bg: #f1f5f9;
+  --card: #ffffff;
+  --text: #1e293b;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --radius: 14px;
+  --shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+  --shadow-hover: 0 14px 28px rgba(30, 58, 138, 0.18);
+}
+
+/* ---------- 2. Box model reset ---------- */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+}
+
+/* ---------- 3. Base page and font styling ---------- */
+body {
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+}
+
+h1, h2, h3 {
+  font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+  line-height: 1.25;
+}
+
+h3 {
+  color: var(--primary);
+  margin: 0 0 8px;
+}
+
+a {
+  color: var(--accent);
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--primary);
+}
+
+/* ---------- 4. Header (hero) ---------- */
+header {
+  padding: 56px 20px 64px;
+  text-align: center;
+  color: #fff;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(251, 191, 36, 0.25), transparent 40%),
+    linear-gradient(135deg, var(--primary-dark), var(--primary) 50%, var(--accent));
+}
+
+header h1 {
+  margin: 0 0 10px;
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+header p {
+  margin: 0 0 24px;
+  font-size: 1.15rem;
+  opacity: 0.92;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 50px;
+  background: var(--gold);
+  color: var(--primary-dark);
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.btn:hover {
+  color: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.3);
+}
+
+/* ---------- 5. Sticky navigation (CSS positioning) ---------- */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--primary-dark);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 8px 12px;
+  list-style: none;
+}
+
+nav a {
+  position: relative;
+  display: block;
+  padding: 8px 14px;
+  color: #e2e8f0;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.25s, color 0.25s;
+}
+
+nav a:hover {
+  background: var(--gold);
+  color: var(--primary-dark);
+}
+
+/* ---------- 6. Page layout ---------- */
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 32px 16px 20px;
+}
+
+section {
+  margin-bottom: 32px;
+  padding: 28px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+section h2 {
+  position: relative;
+  margin: 0 0 20px;
+  padding-bottom: 12px;
+  font-size: 1.7rem;
+  color: var(--primary);
+}
+
+/* short gold underline under every section heading (absolute positioning) */
+section h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 70px;
+  height: 4px;
+  border-radius: 4px;
+  background: var(--gold);
+}
+
+p {
+  margin: 0 0 14px;
+}
+
+ul, ol {
+  padding-left: 22px;
+}
+
+li {
+  margin-bottom: 4px;
+}
+
+/* ---------- 7. Cards (grid layout and hover effects) ---------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+article {
+  padding: 20px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--accent);
+  border-radius: 12px;
+  transition: transform 0.3s, box-shadow 0.3s, border-top-color 0.3s;
+}
+
+article:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-top-color: var(--gold);
+}
+
+article ul {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ---------- 8. Images, video, audio, map ---------- */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+article img {
+  display: block;
+  margin-bottom: 12px;
+  transition: transform 0.3s;
+}
+
+article:hover img {
+  transform: scale(1.05);
+}
+
+figure {
+  margin: 0 0 24px;
+}
+
+figure img,
+figure video {
+  display: block;
+  box-shadow: var(--shadow);
+}
+
+figcaption {
+  margin-top: 6px;
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--muted);
+}
+
+iframe {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  height: 320px;
+  border: 3px solid var(--border);
+}
+
+/* ---------- 9. Tables ---------- */
+.table-wrap {
+  overflow-x: auto;
+  margin-top: 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+caption {
+  padding: 12px;
+  font-weight: 600;
+  text-align: left;
+  color: var(--primary);
+}
+
+th {
+  padding: 12px 14px;
+  text-align: left;
+  color: #fff;
+  background: var(--primary);
+}
+
+td {
+  padding: 11px 14px;
+  border-top: 1px solid var(--border);
+}
+
+tbody tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+tbody tr {
+  transition: background 0.2s;
+}
+
+tbody tr:hover {
+  background: #e0e7ff;
+}
+
+/* ---------- 10. Registration form ---------- */
+fieldset {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  column-gap: 24px;
+  margin: 0 0 20px;
+  padding: 18px 22px 8px;
+  border: 1px solid #c7d2fe;
+  border-radius: 12px;
+  background: #fafaff;
+}
+
+legend {
+  padding: 4px 14px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  border-radius: 20px;
+}
+
+/* groups of radio/checkbox, textarea and file fields use the full row */
+fieldset p:has(input[type=radio]),
+fieldset p:has(input[type=checkbox]),
+fieldset p:has(textarea),
+fieldset p:has(input[type=file]) {
+  grid-column: 1 / -1;
+}
+
+label {
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=tel],
+input[type=number],
+input[type=date],
+select,
+textarea {
+  width: 100%;
+  margin-top: 4px;
+  padding: 10px 12px;
+  font: inherit;
+  color: var(--text);
+  background: #fff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+  border-color: var(--accent);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(109, 40, 217, 0.15);
+}
+
+input:user-invalid,
+select:user-invalid,
+textarea:user-invalid {
+  border-color: #dc2626;
+}
+
+input:user-valid {
+  border-color: #16a34a;
+}
+
+input[type=radio],
+input[type=checkbox] {
+  margin: 0 4px 0 12px;
+  accent-color: var(--accent);
+}
+
+input[type=radio]:first-of-type,
+input[type=checkbox]:first-of-type {
+  margin-left: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  margin-right: 10px;
+  padding: 12px 32px;
+  font: inherit;
+  font-weight: 600;
+  border: 0;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+button[type=submit] {
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+}
+
+button[type=submit]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(109, 40, 217, 0.35);
+}
+
+button[type=reset] {
+  color: var(--text);
+  background: #e2e8f0;
+}
+
+button[type=reset]:hover {
+  background: #cbd5e1;
+}
+
+address {
+  font-style: normal;
+  padding: 16px 20px;
+  background: #f8fafc;
+  border-left: 5px solid var(--gold);
+  border-radius: 8px;
+}
+
+/* ---------- 11. Footer and floating button ---------- */
+footer {
+  padding: 28px 16px;
+  text-align: center;
+  color: #cbd5e1;
+  background: var(--primary-dark);
+}
+
+footer p {
+  margin: 4px 0;
+}
+
+footer a {
+  color: var(--gold);
+}
+
+/* fixed-position back-to-top button */
+.back-top {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 200;
+  width: 46px;
+  height: 46px;
+  line-height: 46px;
+  text-align: center;
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: var(--primary-dark);
+  background: var(--gold);
+  border-radius: 50%;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+  transition: transform 0.25s, background 0.25s;
+}
+
+.back-top:hover {
+  color: #fff;
+  background: var(--accent);
+  transform: translateY(-5px);
+}
+
+/* ---------- 12. Responsive (mobile) ---------- */
+@media (max-width: 640px) {
+  header h1 { font-size: 1.8rem; }
+  section { padding: 18px; }
+  nav ul { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; }
+  nav a { white-space: nowrap; }
+}
